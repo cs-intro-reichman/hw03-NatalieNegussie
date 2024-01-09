@@ -32,7 +32,6 @@ public class Calendar0 {
 		return true;
 		}
 		return false;
-	
 	}
 	 
 	// Returns the number of days in the given month and year.
@@ -40,7 +39,6 @@ public class Calendar0 {
 	// February has 28 days in a common year, and 29 days in a leap year.
 	// All the other months have 31 days.
 	public static int nDaysInMonth(int month, int year) {
-		
 			int numOfDays;
 			int i=month;
 			if((i==1)||(i==3)||(i==5)||(i==7)||(i==8)||(i==10)||(i==12)){
@@ -58,8 +56,9 @@ public class Calendar0 {
 				}
 				else{
 					numOfDays = 28;
-					return numOfDays;;
+					return numOfDays;
 				}	
-			}	
-	}
+			}
+			return 0;
+	}		
 }
