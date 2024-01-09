@@ -20,29 +20,53 @@ public class Calendar1 {
 	    int debugDaysCounter = 0; 
 	    //// Write the necessary initialization code, and replace the condition
 	    //// of the while loop with the necessary condition 
-	 	while (true) {
-	 		//// Write the body of the while 		
+	 	while (year<=1999) {
+	 		System.out.print(dayOfMonth+"/"+month+"/"+year);
+			if((dayOfWeek==1)&&(dayOfMonth==1)){
+				debugDaysCounter++;
+				System.out.print(" Sunday");
+			}	
+			System.out.println();
 	 		advance();
-	 		debugDaysCounter++;
 	 		//// If you want to stop the loop after n days, replace the condition of the
 	 		//// if statement with the condition (debugDaysCounter == n)
-	 		if (false) { 
+	 		if (year==2000) { 
 	 			break;
 	 		}
         }
-	 	//// Write the necessary ending code here
+	 	System.out.println("During the 20th century, "+debugDaysCounter+ " Sundays fell on the first day of the month");
 	 }
 	
 	 // Advances the date (day, month, year) and the day-of-the-week.
 	 // If the month changes, sets the number of days in this month.
 	 // Side effects: changes the static variables dayOfMonth, month, year, dayOfWeek, nDaysInMonth.
 	 private static void advance() {
-		// Replace this comment with your code
+		if(dayOfMonth==nDaysInMonth){
+			dayOfMonth=1;
+			if(month==12){
+				year++;
+				month=1;
+			}
+			else{	
+			month++;
+			}
+		}
+		else{
+			dayOfMonth++;
+		}	
+		if(dayOfWeek==7){
+			dayOfWeek=1;
+		}
+		else{
+			dayOfWeek++;
+		}	
 	 } 
 		 
     // Returns true if the given year is a leap year, false otherwise.
 	private static boolean isLeapYear(int year) {
-	    // Replace the following statement with your code
+	    if(year%4==0){
+		return true;
+		}
 		return false;
 	}
 	 
@@ -52,6 +76,26 @@ public class Calendar1 {
 	// All the other months have 31 days.
 	private static int nDaysInMonth(int month, int year) {
 		// Replace the following statement with your code
-		return 0;
+		int numOfDays;
+			int i=month;
+			if((i==1)||(i==3)||(i==5)||(i==7)||(i==8)||(i==10)||(i==12)){
+				numOfDays = 31;
+				return numOfDays;
+			}
+			if((i==4)||(i==6)||(i==9)||(i==11)){
+				numOfDays = 30;
+				return numOfDays;
+			}
+			if(i==2){
+				if(isLeapYear(year)){
+					numOfDays = 29;
+					return numOfDays;
+				}
+				else{
+					numOfDays = 28;
+					return numOfDays;
+				}	
+			}
+			return 0;
 	}
 }
