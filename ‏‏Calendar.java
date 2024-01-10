@@ -1,13 +1,14 @@
 /** 
  * Prints the calendars of all the years in the 20th century.
  */
-public class Calendar1 {	
+public class Calendar.java {	
     // Starting the calendar on 1/1/1900
 	static int dayOfMonth = 1;   
 	static int month = 1;
 	static int year = 1900;
 	static int dayOfWeek = 2;     // 1.1.1900 was a Monday
 	static int nDaysInMonth = 31; // Number of days in January
+	int selectedYear = Integer.parseInt(args[0]);
 	
 	/** 
 	 * Prints the calendars of all the years in the 20th century. Also prints the  
@@ -21,12 +22,14 @@ public class Calendar1 {
 	    //// Write the necessary initialization code, and replace the condition
 	    //// of the while loop with the necessary condition 
 	 	while (year<=1999) {
+			if(year==selectedYear){
 	 		System.out.print(dayOfMonth+"/"+month+"/"+year);
 			if((dayOfWeek==1)&&(dayOfMonth==1)){
 				debugDaysCounter++;
 				System.out.print(" Sunday");
 			}	
 			System.out.println();
+			}
 	 		advance();
 	 		//// If you want to stop the loop after n days, replace the condition of the
 	 		//// if statement with the condition (debugDaysCounter == n)
@@ -34,7 +37,6 @@ public class Calendar1 {
 	 			break;
 	 		}
         }
-	 	System.out.println("During the 20th century, "+debugDaysCounter+ " Sundays fell on the first day of the month");
 	 }
 	
 	 // Advances the date (day, month, year) and the day-of-the-week.
