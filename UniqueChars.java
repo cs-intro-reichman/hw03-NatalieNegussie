@@ -12,18 +12,17 @@ public class UniqueChars {
      */
     public static String uniqueChars(String s) {
 		String newStr = "";
-		int count=0;
         for(int i=0; i<s.length(); i++){
-		    for(int j=0; j<s.length(); j++){
-				if((s.charAt(i)==s.charAt(j))&&(i<j)){
-					count++;
+				if(s.charAt(i)==' '){
+					newStr = newStr+s.charAt(i);
 				}	
-			}
-			if (count==0){
-				newStr = newStr + s.charAt(i);
-			}
-			count=0;	
+			    else if (newStr.indexOf(s.charAt(i))==-1){
+				    newStr = newStr + s.charAt(i);
+			    }
+			    else if (newStr.indexOf(s.charAt(i))!=-1){
+				    newStr = newStr;
+			    }	
 		}
         return newStr;
     }
-}
+}    
